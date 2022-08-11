@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import "./pagination";
+
+$neutral-light: #e7e9ea;
+$neutral-dark: #333;
+$accent-color: #3492b8;
+$icon-color: #0b2e56;
+
+@mixin flexCenter($direction){
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 16px;
+}
+body{
+  background-color:  $neutral-light;
+  font-family: 'Mulish', sans-serif;
+}
+.container{
+  margin: 1rem;
+  text-align: center;
+  @include flexCenter(column);
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #a7a6a4;
+  padding: 40px;
+  @include flexCenter(column);
+  z-index: 1000
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 1000;
+}
+.button-div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5px;
+  margin-top: 10px;
+}
+.modal-button{
+  margin-right: 10px;
+  padding: 2px 3px;
+  border: none;
+  border-radius: 2px;
+}
+.delete-button{
+  margin-right: 10px;
+  padding: 2px 3px;
+  border: none;
+  border-radius: 2px;
+  color: red;
+}
+.please-login{
+  color: red;
+  margin-top: 3rem
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: $neutral-dark;
+  color: white;
+  gap: 2rem;
+  padding: 0rem 1rem;
+  align-items: stretch;
+
+  ul{
+    list-style: none;
+    display: flex;
+    gap: 0rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  a{
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  @include flexCenter(row);
+  padding: 0 1rem;
+  &:hover{
+      background-color: $accent-color;
+    }
+  }
+  li.active{
+  background-color: $accent-color
+  }
+}
+.site-title{
+  font-size: clamp(1rem, 1rem + 2vw, 5rem);
+}
+.login{
+  padding: .2rem .5rem;
+  font-size: inherit;
+  background-color: $accent-color;
+  border: none;
+  color: inherit;
+  padding: .3rem .5rem;
+  margin-top: .7rem;
+  margin-left: .5rem;
+  display: block;
+  align-self: center;
+  &:hover{
+      cursor: pointer;
+      filter: brightness(1.2);
+    }
+}
+.profile{
+  @include flexCenter(row);
+  .user-icon{
+    border: white solid 1px;
+    border-radius: 50%;
+    padding: .2rem .5rem;
+    background-color: $icon-color;
+    margin-right: .5rem;
+    color: white;
+  }
+  font-size: 1.5rem;
+}
+img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+h1{
+  margin-top: 2rem;
+  font-size: 3rem;
+}
+form{
+  margin-top: 1rem;
+  p{
+  margin: 0 2rem;
+  }
+  button{
+  width: 8rem;
+  background-color: $accent-color;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  height: 1.2rem;
+  cursor: pointer;
+
+  &:hover{
+  filter: brightness(1.2);
+  }
+}
+}
+
+.form-row{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  background-color: white;
+  border: 1px solid black;
+  padding: .5rem;
+}
+.form-column{
+  display: flex;
+  flex-direction: column;
+}
+textarea{
+  width: 50rem;
+  height: 8rem;
+}
+input[type=text]{
+  width: 50rem;
+}
+.table-column{
+  display: table;
+
+}
+.table-row{
+  display: table-row;
+}
+.table-column p{
+  display: table-cell;
+  text-align: left;
+}
+.table-column select{
+  display: table-cell;
+}
+.form-submit{
+  margin-top: 2rem;
+  font-size: 2rem;
+  height: auto;
+  width: auto;
+  padding: .5rem .7rem;
+  border-radius: 3px;
+}
+.filters{
+  @include flexCenter(row);
+  margin-top: 2rem;
+  p{
+  margin-left: 2rem;
+  margin-bottom: .2rem;
+  font-size: 1.2rem;
+  }
+  select, input{
+  background-color: white;
+  border: none;
+  margin-left: .5rem;
+  font-size: 1.2rem;
+  border: 1px solid;
+  }
+  select:hover{
+  background-color: $accent-color;
+  }
+  button{
+  background-color: $accent-color;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  margin-left: 1rem;
+  padding: .2rem .3rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  }
+  button:hover{
+  filter: brightness(1.2);
+  }
+  .mobile-row{
+    @include flexCenter(row);
+  }
+}
+.main-table{
+  @include flexCenter(column);
+table{
+  border: 1px solid;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 1.1rem;
+  margin-left: 2rem;
+  span{
+    margin-left: .5rem;
+  }
+  thead{
+    background-color: $neutral-dark;
+    color: white;
+  }
+  th{
+    &:hover{
+      background-color: $accent-color;
+      cursor: pointer;
+    }
+  }
+  tbody{
+    tr{
+    &:hover{
+    background-color: $accent-color;
+    cursor: pointer;
+    }
+    }
+    }
+    td{
+      padding: .5rem 2rem;
+    }
+    tr{
+      &:nth-child(even){
+      background-color: silver;
+    }
+  }
+}
+}
+.modal-div{
+  @include flexCenter(column);
+  text-align: center;
+  .warning{
+    font-size: 1rem;
+    margin-top: 10px;
+    color: red;
+  }
+  p{
+    font-size: 1.1rem;
+    margin-left: .5rem;
+    margin-top: .4rem;
+  }
+    .project-modal{
+      display: flex;
+      h3{
+        font-size: 1.5rem;
+      }
+      input, select{
+        margin: 5px 0 0 5px;
+      }
+    }
+}
+.table-container{
+  overflow-x: auto;
+}
+.home{
+  display: flex;
+  width: 90%;
+  margin-top: 3rem;
+  h2{
+    font-size: 2rem;
+  }
+  .user-list{
+    width: 20%;
+    @include flexCenter(column);
+    table{
+      border: 1px solid;
+      margin-top: 1rem;
+      border-collapse: collapse;
+      background-color: white;
+      font-size: 1.1rem;
+      th{
+        background-color: $neutral-dark;
+        color: white;
+        display: block;
+        text-align: center;
+      }
+      td{
+          padding: .5rem 2rem;
+          border: 1px solid grey;
+          padding: 10px;
+          display: block;
+          text-align: center;
+          &:hover{
+          background-color: $accent-color;
+          cursor: pointer;
+          }
+      }
+    }
+  }
+  .dashboards{
+    margin-left: 5rem;
+    background-color: white;
+    @include flexCenter(column);
+    padding: 1rem;
+    border: 2px solid black;
+    .bar{
+      stroke: black;
+      fill: $accent-color
+    }
+    .bar:hover{
+      fill: $icon-color
+    }
+    #tooltip{
+      background-color: $neutral-light;
+      color: black;
+      border-radius: 2px;
+      width: 350px;
+      position: absolute;
+    }
+    .axis-label{
+      font-size: .8rem;
+    }
+    .chart-label{
+      font-size: 1rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+    .progress-label{
+      @extend .chart-label;
+      font-size: 1.5rem;
+    }
+  }
+}
+.user-modal{
+  .row{
+    @include flexCenter(row);
+  }
+  input, select{
+    margin-left: 1rem;
+  }
+  width: 50%;
+}
+h2{
+  text-decoration: underline;
+}
+
+@media (max-width: 55em){
+  nav, ul{
+    @include flexCenter(column);
+    padding: 1rem 0;
+  }
+  .home{
+    @include flexCenter(column);
+    justify-content: center;
+    gap: 1em;
+    width: inherit;
+  }
+  .dashboards{
+    margin-left: 0 !important;
+  }
+  .filters{
+    @include flexCenter(column);
+    input{
+      margin-bottom: 1rem;
+    }
+  }
+  .mobile-row{
+    p{
+      font-size: 1rem;
+    }
+    select{
+      font-size:.8rem;
+      margin-bottom: .5rem;
+    }
+  }
+  table{
+    thead {
+      display: none;
+    }
+    td {
+      display: flex;
+    &::before {
+      content: attr(label);
+      font-weight: bold;
+      width: 120px;
+      min-width: 120px;
+    }
+  }
+  }
+  .modal{
+    width: 90%;
+    margin: .5rem;
+  }
+  form{
+      input, textarea{
+      width: 100% !important;
+      height: 80%;
+    }
+  }
+  .form-row{
+    @include flexCenter(column);
+  }
+}
