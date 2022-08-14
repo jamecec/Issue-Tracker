@@ -24,7 +24,7 @@ export default function Table({arr, perPage, users}){
 
   const openIssue = async (id) =>{
     setIssueId(id);
-    const findIssue = await axios.get(`http://localhost:5000/api/issues/${id}`);
+    const findIssue = await axios.get(`https://issue-tracker-jc.herokuapp.com/api/issues/${id}`);
     console.log("issue found");
     setIssueFound(findIssue.data);
     setIssueIsOpen(true);
@@ -34,7 +34,7 @@ export default function Table({arr, perPage, users}){
       let currentUser = users.filter((item) => item.email === user.email);
       if(currentUser[0].role === "admin"){
         (async () => {
-          await axios.delete(`http://localhost:5000/api/issues/${id}`, {_id: id});
+          await axios.delete(`https://issue-tracker-jc.herokuapp.com/api/issues/${id}`, {_id: id});
           console.log("issue deleted");
           setModalStatus("Issue Deleted!");
         })();

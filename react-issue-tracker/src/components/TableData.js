@@ -26,13 +26,13 @@ export default function TableData({profileName}) {
 
   useEffect(()=>{
     const fetchData = async () => {
-      const userData = await axios.get('http://localhost:5000/api/users')
+      const userData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/users')
       setUsers([userData.data, {_id: "0", username: "Unassigned"}].flat());
 
-      const projectData = await axios.get('http://localhost:5000/api/projects')
+      const projectData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/projects')
       setProjects([projectData.data].flat())
 
-      const issueData = await axios.get('http://localhost:5000/api/issues')
+      const issueData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/issues')
       setIssues([issueData.data].flat());
       setIsLoaded(true);
     }

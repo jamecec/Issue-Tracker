@@ -31,10 +31,10 @@ export default function Home() {
 
   useEffect(()=>{
     const fetchData = async () => {
-      const userData = await axios.get('http://localhost:5000/api/users')
+      const userData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/users')
       setUsers([userData.data, {_id: "0", username: "Unassigned"}].flat());
 
-      const issueData = await axios.get('http://localhost:5000/api/issues')
+      const issueData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/issues')
       setOverdueArr([issueData.data].flat().filter((item) => item.Status !== "Completed" && item.status !== "Canceled" && new Date(item.DueDate) < today));
       setIssues([issueData.data].flat())
 
@@ -95,7 +95,7 @@ export default function Home() {
         email: emailChange,
         role: roleChange
       }
-      const submission = await axios.put(`http://localhost:5000/api/users/${userId}`, userData);
+      const submission = await axios.put(`https://issue-tracker-jc.herokuapp.com/api/users/${userId}`, userData);
       setUserModalStatus("User Updated!");
       console.log("User Updated");
       setTimeout(()=>{
@@ -108,7 +108,7 @@ export default function Home() {
   }
 
   const deleteUser = async () => {
-    await axios.delete(`http://localhost:5000/api/users/${userId}`, {_id: userId});
+    await axios.delete(`https://issue-tracker-jc.herokuapp.com/api/users/${userId}`, {_id: userId});
     console.log("user deleted");
     setUserModalStatus("User Deleted!");
     setTimeout(()=>{

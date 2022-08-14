@@ -17,7 +17,7 @@ useEffect(() => {
       const userData = {
         username: user.name,
         email: user.email};
-        axios.post('http://localhost:5000/api/users', userData)
+        axios.post('https://issue-tracker-jc.herokuapp.com/api/users', userData)
         .then((response) => {
           console.log("User Login")
         })

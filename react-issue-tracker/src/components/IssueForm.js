@@ -27,10 +27,10 @@ export default function IssueForm({issueAction, foundIssue, closeIssueModal}) {
 
   useEffect(()=>{
     const fetchData = async () => {
-      const userData = await axios.get('http://localhost:5000/api/users')
+      const userData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/users')
       setUsers([userData.data, {_id: "0", username: "Unassigned"}].flat());
 
-      const projectData = await axios.get('http://localhost:5000/api/projects')
+      const projectData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/projects')
       setProjects([projectData.data].flat())
     }
     (async () => {
@@ -76,7 +76,7 @@ export default function IssueForm({issueAction, foundIssue, closeIssueModal}) {
   }
 
   const getProjects = async () =>{
-    const projectData = await axios.get('http://localhost:5000/api/projects')
+    const projectData = await axios.get('https://issue-tracker-jc.herokuapp.com/api/projects')
     setProjects([projectData.data].flat())
     console.log("refreshed projects")
   };
@@ -88,7 +88,7 @@ export default function IssueForm({issueAction, foundIssue, closeIssueModal}) {
     }
     else{
         const projectData = {project: projectName}
-        const postProject = await axios.post('http://localhost:5000/api/projects', projectData);
+        const postProject = await axios.post('https://issue-tracker-jc.herokuapp.com/api/projects', projectData);
         console.log("Project Added");
         setTimeout(() => {
           getProjects();
@@ -104,7 +104,7 @@ export default function IssueForm({issueAction, foundIssue, closeIssueModal}) {
     }
     else{
         const versionData = {project: projectName, version: newVersion};
-        const put = await axios.put('http://localhost:5000/api/projects', versionData);
+        const put = await axios.put('https://issue-tracker-jc.herokuapp.com/api/projects', versionData);
         console.log("Version Added");
         setTimeout(() => {
           getProjects();
@@ -127,8 +127,8 @@ export default function IssueForm({issueAction, foundIssue, closeIssueModal}) {
       dueDate: dueDate,
       comments: comments
     }
-    const submission = issueAction.action == "post" ? await axios.post('http://localhost:5000/api/issues', issueData) :
-    issueAction.action == "put" ? await axios.put(`http://localhost:5000/api/issues/${issueAction._id}`, issueData) : null;
+    const submission = issueAction.action == "post" ? await axios.post('https://issue-tracker-jc.herokuapp.com/api/issues', issueData) :
+    issueAction.action == "put" ? await axios.put(`https://issue-tracker-jc.herokuapp.com/api/issues/${issueAction._id}`, issueData) : null;
 
     if(issueAction.action == "post"){
       console.log("issue added");
