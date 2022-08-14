@@ -26,6 +26,7 @@ const start = async () => {
 };
 start();
 
+app.get('/', (req, res) => { res.send('Hello from Express!');
 
 //users
 app.post('/api/users', async (req,res) => {
