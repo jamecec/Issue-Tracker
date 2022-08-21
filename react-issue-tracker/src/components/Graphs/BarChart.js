@@ -134,11 +134,11 @@ export const BarChart = ({data}) => {
 
       })
     return (
-      <div className="chart">
+      <div className = "chart-container" style={{paddingBottom: "63%"}}>
       <svg
+          className="bar-svg"
           ref={svgRef}
           viewBox="0 0 800 500"
-          preserveAspectRatio="xMinYMid"
           />
       </div>
     );

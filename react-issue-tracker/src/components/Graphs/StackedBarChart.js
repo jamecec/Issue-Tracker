@@ -73,8 +73,6 @@ export const StackedBarChart = ({data}) => {
       svgEl.selectAll("*").remove(); //clear contents before adding new elements
       const svg = svgEl
                   .append("g")
-
-
       // creating chart area
         svg.selectAll("g")
           .data(stackedData)
@@ -174,11 +172,12 @@ export const StackedBarChart = ({data}) => {
 
       })
     return (
-      <div className="chart">
+      <div className="chart-container">
       <svg
+          className="bar-svg"
           ref={svgRef}
           viewBox="0 0 800 500"
-          preserveAspectRatio="xMinYMid"
+          preserveAspectRatio="xMidYMid meet"
           />
       </div>
     );

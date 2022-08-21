@@ -431,6 +431,12 @@ input[type=text] {
   padding: 1rem;
   border: 2px solid black;
 }
+.home .dashboards .bar-svg {
+  width: 1200px;
+  height: auto;
+  max-width: 100%;
+  max-height: 1200px;
+}
 .home .dashboards .bar {
   stroke: black;
   fill: #3492b8;

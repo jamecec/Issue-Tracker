@@ -344,6 +344,12 @@ table{
     @include flexCenter(column);
     padding: 1rem;
     border: 2px solid black;
+    .bar-svg{
+      width: 1200px;
+      height: auto;
+      max-width: 100%;
+      max-height: 1200px;
+    }
     .bar{
       stroke: black;
       fill: $accent-color
